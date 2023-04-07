@@ -7,8 +7,9 @@ class LaptopsController < ApplicationController
 
 
   def show  
-    @laptops = Laptop.all 
-    
+    @laptops = Laptop.find_by(id: params[:id])
+    render :show 
+
   end 
 
   def create 
@@ -22,5 +23,22 @@ class LaptopsController < ApplicationController
     render :show
 
   end 
+
+  def update  
+    @friends = Friend.find_by(id: params[:id])
+    @laptop.update(
+      model: params[:model] || @laptop.model, 
+      year: params[:year] || @laptop.year
+      )
+  end 
+
+  def destroy 
+
+  end 
+  
+
+
+
+
   
 end 

@@ -10,10 +10,15 @@ post "/laptops" => "laptops#create"
 
 #show 
 
+get "/laptops/:id" => "laptops#show"
+
 #update 
+
+patch "/laptops/:id" => "laptops#update"
 
 #destroy 
 
+delete "/laptops/:id" => "laptops#destroy"
 
 
 end
