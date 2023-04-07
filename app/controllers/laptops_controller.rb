@@ -25,7 +25,7 @@ class LaptopsController < ApplicationController
   end 
 
   def update  
-    @friends = Friend.find_by(id: params[:id])
+    @laptops = Laptop.find_by(id: params[:id])
     @laptop.update(
       model: params[:model] || @laptop.model, 
       year: params[:year] || @laptop.year
@@ -33,6 +33,9 @@ class LaptopsController < ApplicationController
   end 
 
   def destroy 
+    @laptops = Laptop.find_by(id: params[:id])
+    @laptops.destroy
+    render json: {message: "This has been successfully destroyed"}
 
   end 
   
